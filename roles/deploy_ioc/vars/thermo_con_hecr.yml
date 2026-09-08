@@ -1,6 +1,6 @@
 ---
 deploy_ioc_use_common: true
-deploy_ioc_required_module: thermo_con_hecr_408be93
+deploy_ioc_required_module: thermo_con_hecr_f159d3e
 deploy_ioc_template_root_path: "{{ deploy_ioc_required_module_path }}"
 deploy_ioc_make_autosave_files: true
 deploy_ioc_executable: thermo_con_hecr
