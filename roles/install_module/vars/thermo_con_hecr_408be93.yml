@@ -1,0 +1,8 @@
+---
+
+thermo_con_hecr_408be93:
+  name: "thermo_con_hecr"
+  url: "https://github.com/NSLS2/thermo-con-hecr-ioc"
+  version: "408be93"
+  module_deps:
+    - modbus_bb9fa05
