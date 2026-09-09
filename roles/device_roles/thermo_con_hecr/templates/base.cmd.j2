@@ -6,7 +6,7 @@ dbLoadDatabase("{{ deploy_ioc_template_root_path }}/dbd/{{ deploy_ioc_executable
 drvAsynIPPortConfigure("$(HECR_ASYNPORT)", "$(HOST)", 0, 0, 0)
 asynOctetSetOutputEos("$(HECR_ASYNPORT)", 0, "\r\n")
 asynOctetSetInputEos("$(HECR_ASYNPORT)", 0, "\r\n")
-modbusInterposeConfig("$(HECR_ASYNPORT)", 2, 2000, 0)
+modbusInterposeConfig("$(HECR_ASYNPORT)", 2, 2000, 0) # linkType 2 = Modbus ASCII interposer; the HECR uses CRLF-delimited ASCII framing over this TCP socket
 
 # Configure chiller Modbus
 {% for op in ioc.operations %}
