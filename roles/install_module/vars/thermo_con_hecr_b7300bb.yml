@@ -1,8 +1,8 @@
 ---
 
-thermo_con_hecr_f840218:
+thermo_con_hecr_b7300bb:
   name: "thermo_con_hecr"
   url: "https://github.com/NSLS2/thermo-con-hecr-ioc"
-  version: "f840218"
+  version: "b7300bb"
   module_deps:
     - modbus_bb9fa05
