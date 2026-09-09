@@ -1,8 +1,8 @@
 ---
 
-thermo_con_hecr_f159d3e:
+thermo_con_hecr_5475f4a:
   name: "thermo_con_hecr"
   url: "https://github.com/NSLS2/thermo-con-hecr-ioc"
-  version: "f159d3e"
+  version: "5475f4a"
   module_deps:
     - modbus_bb9fa05
