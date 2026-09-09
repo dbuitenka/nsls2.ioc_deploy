@@ -8,7 +8,7 @@ asynOctetSetOutputEos("$(HECR_ASYNPORT)", 0, "\r\n")
 asynOctetSetInputEos("$(HECR_ASYNPORT)", 0, "\r\n")
 modbusInterposeConfig("$(HECR_ASYNPORT)", 2, 2000, 0)
 
-# Configure circuit breakers
+# Configure chiller Modbus
 {% for op in ioc.operations %}
 
 epicsEnvSet("PORT_NAME","{{ op.PORT_NAME }}")
