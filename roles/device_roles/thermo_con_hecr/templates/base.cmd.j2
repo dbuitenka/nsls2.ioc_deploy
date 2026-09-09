@@ -3,7 +3,7 @@ dbLoadDatabase("{{ deploy_ioc_template_root_path }}/dbd/{{ deploy_ioc_executable
 {{ deploy_ioc_executable }}_registerRecordDeviceDriver(pdbbase)
 
 # Configure the low level communication port
-drvAsynIPPortConfigure("$(HECR_ASYNPORT)", "$(HOST):4001", 0, 0, 0)
+drvAsynIPPortConfigure("$(HECR_ASYNPORT)", "$(HOST)", 0, 0, 0)
 asynOctetSetOutputEos("$(HECR_ASYNPORT)", 0, "\r\n")
 asynOctetSetInputEos("$(HECR_ASYNPORT)", 0, "\r\n")
 modbusInterposeConfig("$(HECR_ASYNPORT)", 2, 2000, 0)
