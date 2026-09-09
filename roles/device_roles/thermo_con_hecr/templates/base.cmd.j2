@@ -11,7 +11,7 @@ modbusInterposeConfig("$(HECR_ASYNPORT)", 2, 2000, 0)
 # Configure chiller Modbus
 {% for op in ioc.operations %}
 
-epicsEnvSet("PORT_NAME","{{ op.PORT_NAME }}")
+epicsEnvSet("PORT_NAME","$(HECR_ASYNPORT)_{{ op.PORT_NAME }}")
 epicsEnvSet("MODBUS_FUNC", "{{ op.MODBUS_FUNC }}")
 epicsEnvSet("START_ADDR", "{{ op.START_ADDR }}")
 epicsEnvSet("MODBUS_LEN", "{{ op.MODBUS_LEN }}")
