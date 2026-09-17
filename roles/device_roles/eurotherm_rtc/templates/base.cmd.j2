@@ -1,0 +1,25 @@
+
+dbLoadDatabase("{{ deploy_ioc_template_root_path }}/dbd/{{ deploy_ioc_executable }}.dbd")
+{{ deploy_ioc_executable }}_registerRecordDeviceDriver(pdbbase)
+
+# eurotherm_rtc specific commands
+
+
+# Configure the low level communication port
+drvAsynIPPortConfigure("$(EPC_ASYNPORT)", "$(HOST):502", 0, 0, 1)
+modbusInterposeConfig("$(EPC_ASYNPORT)", 0, 2000, 0) 
+
+# Configure Eurotherm Modbus
+{% for op in ioc.operations %}
+
+epicsEnvSet("PORT_NAME","$(EPC_ASYNPORT)_{{ op.PORT_NAME }}")
+epicsEnvSet("MODBUS_FUNC", "{{ op.MODBUS_FUNC }}")
+epicsEnvSet("START_ADDR", "{{ op.START_ADDR }}")
+epicsEnvSet("MODBUS_LEN", "{{ op.MODBUS_LEN }}")
+epicsEnvSet("DATA_TYPE", "{{ op.DATA_TYPE }}")
+
+drvModbusAsynConfigure("$(PORT_NAME)", "$(EPC_ASYNPORT)", 1, $(MODBUS_FUNC), $(START_ADDR), $(MODBUS_LEN), "$(DATA_TYPE)", 1000, "EPC3016")
+
+{% endfor %}
+
+dbLoadRecords("$(EUROTHERM_EPC3016)/db/EPC3016.db", "Sys=$(SYS), Dev=$(DEV), ASYNPORT=$(EPC_ASYNPORT)")
