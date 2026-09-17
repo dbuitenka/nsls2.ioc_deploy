@@ -7,7 +7,7 @@ dbLoadDatabase("{{ deploy_ioc_template_root_path }}/dbd/{{ deploy_ioc_executable
 
 # Configure the low level communication port
 drvAsynIPPortConfigure("$(EPC_ASYNPORT)", "$(HOST):502", 0, 0, 1)
-modbusInterposeConfig("$(EPC_ASYNPORT)", 0, 2000, 0) 
+modbusInterposeConfig("$(EPC_ASYNPORT)", 0, 2000, 0)
 
 # Configure Eurotherm Modbus
 {% for op in ioc.operations %}
@@ -22,4 +22,4 @@ drvModbusAsynConfigure("$(PORT_NAME)", "$(EPC_ASYNPORT)", 1, $(MODBUS_FUNC), $(S
 
 {% endfor %}
 
-dbLoadRecords("$(EUROTHERM_EPC3016)/db/EPC3016.db", "Sys=$(SYS), Dev=$(DEV), ASYNPORT=$(EPC_ASYNPORT)")
+dbLoadRecords("$(EUROTHERM_RTC)/db/EPC3016.db", "Sys=$(SYS), Dev=$(DEV), ASYNPORT=$(EPC_ASYNPORT)")

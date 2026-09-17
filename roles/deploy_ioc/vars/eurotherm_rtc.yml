@@ -7,4 +7,4 @@ deploy_ioc_template_root_path: "{{ deploy_ioc_required_module_path }}"
 deploy_ioc_make_autosave_files: true
 deploy_ioc_executable: eurotherm_rtc
 deploy_ioc_device_specific_env:
-  EPICS_DB_INCLUDE_PATH: "$(EUROTHERM_EPC3016)/db"
+  EPICS_DB_INCLUDE_PATH: "$(EUROTHERM_RTC)/db"
